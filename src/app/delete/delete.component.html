@@ -1,0 +1,13 @@
+<div>
+    <h1>Employee Form</h1>
+    <p>Enter the id you want to delete</p>
+<form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+    <div class="form-group">
+  <label for="id">Id</label>
+  <input type="text" class="form-control" id="id"
+         required
+         [(ngModel)]="model.id" name="id">
+</div>
+
+
+<button type="submit" class="btn btn-success" [disabled]="!employeeForm.form.valid">Submit</button>

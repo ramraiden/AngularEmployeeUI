@@ -1,0 +1,58 @@
+<p>create works!</p>
+{{diagnostic}}
+<div [hidden]="submitted">
+    <h1>Hero Form</h1>
+<form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+    <div class="form-group">
+  <label for="id">Id</label>
+  <input type="text" class="form-control" id="id"
+         required
+         [(ngModel)]="model.id" name="id">
+</div>
+
+<div class="form-group">
+    <label for="firstName">FirstName</label>
+    <input type="text" class="form-control" id="firstName"
+           required
+           [(ngModel)]="model.firstName" name="firstName">
+  </div>
+
+<div class="form-group">
+    <label for="lastName">lastName</label>
+    <input type="text" class="form-control" id="lastName"
+           required
+           [(ngModel)]="model.lastName" name="lastName">
+</div>
+
+<div class="form-group">
+    <label for="salary">Salary</label>
+    <input type="text" class="form-control" id="salary"
+           required
+           [(ngModel)]="model.salary" name="salary">
+</div>
+<button type="submit" class="btn btn-success" [disabled]="!employeeForm.form.valid">Submit</button>
+
+
+</form> 
+</div>
+<div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Id</div>
+      <div class="col-xs-9">{{ model.id }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">firstName</div>
+      <div class="col-xs-9">{{ model.firstName }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">lastName</div>
+      <div class="col-xs-9">{{ model.lastName }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Salary</div>
+        <div class="col-xs-9">{{ model.salary }}</div>
+      </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
